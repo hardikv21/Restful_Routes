@@ -1,0 +1,33 @@
+<%- include ('partials/header') %>
+
+<div class="ui main text container segment items">
+    <div id="mainHeader" class="ui huge segment header">Blogs</div>
+    <% blogs.forEach(function(foundBlog)
+    { %>
+        <div class="ui huge header">
+            <%= foundBlog.name %>
+        </div>
+        <div class="content">
+            <div class="ui medium image">
+                <img src="<%= foundBlog.image %>">
+            </div>
+        </div>
+        <div class="meta">
+            <span class="date">
+                <%= foundBlog.created.toDateString() %>
+            </span>
+        </div>
+        <div class="description">
+            <p>
+                <%- foundBlog.description.substring(0,20) %>...
+            </p>
+        </div>
+        <div class="description">
+            <p>
+                <a href="/blogs/<%= foundBlog._id %>">Read more</a>
+            </p>
+        </div>
+    <% })%>
+</div>
+
+<%- include ('partials/footer') %>

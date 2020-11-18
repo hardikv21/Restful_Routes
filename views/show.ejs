@@ -1,0 +1,38 @@
+<%- include ('partials/header') %>
+
+<div class="ui main text container segment items">
+    <div class="ui huge header">
+        <%= foundBlog.name %>
+    </div>
+    <div class="item">
+        <div class="content">
+            <div class="ui medium image">
+                <img src="<%= foundBlog.image %>">
+            </div>
+            <div class="meta">
+                <span class="date">
+                    <%= foundBlog.created.toDateString() %>
+                </span>
+            </div>
+            <div class="description">
+                <p>
+                    <%- foundBlog.description %>
+                </p>
+            </div>
+            <div class="item">
+                <p>
+                    <form class="ui form" action="/blogs/<%= foundBlog._id %>?_method=DELETE" method="POST">
+                        <a class="ui orange button" href="/blogs/<%= foundBlog._id %>/edit">
+                            <i class="edit outline icon"></i>
+                        </a>
+                        <button class="ui red button" type="submit">
+                            <i class="trash alternate icon"></i>
+                        </button> 
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/footer') %>
